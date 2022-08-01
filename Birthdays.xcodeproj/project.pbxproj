@@ -14,10 +14,11 @@
 		AD46481A289820E3004BD514 /* BirthdayTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD464818289820E3004BD514 /* BirthdayTracker.xcdatamodeld */; };
 		AD46481C289820E5004BD514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46481B289820E5004BD514 /* Assets.xcassets */; };
 		AD46481F289820E5004BD514 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD46481D289820E5004BD514 /* LaunchScreen.storyboard */; };
+		AD46482728983055004BD514 /* Birthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46482628983055004BD514 /* Birthday.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AD46480C289820E3004BD514 /* BirthdayTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD46480C289820E3004BD514 /* Birthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46480F289820E3004BD514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD464811289820E3004BD514 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AD464813289820E3004BD514 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +27,7 @@
 		AD46481B289820E5004BD514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD46481E289820E5004BD514 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD464820289820E5004BD514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD46482628983055004BD514 /* Birthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +52,7 @@
 		AD46480D289820E3004BD514 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AD46480C289820E3004BD514 /* BirthdayTracker.app */,
+				AD46480C289820E3004BD514 /* Birthdays.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +64,7 @@
 				AD464811289820E3004BD514 /* SceneDelegate.swift */,
 				AD464813289820E3004BD514 /* ViewController.swift */,
 				AD464815289820E3004BD514 /* Main.storyboard */,
+				AD46482628983055004BD514 /* Birthday.swift */,
 				AD46481B289820E5004BD514 /* Assets.xcassets */,
 				AD46481D289820E5004BD514 /* LaunchScreen.storyboard */,
 				AD464820289820E5004BD514 /* Info.plist */,
@@ -73,9 +76,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AD46480B289820E3004BD514 /* BirthdayTracker */ = {
+		AD46480B289820E3004BD514 /* Birthdays */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD464823289820E5004BD514 /* Build configuration list for PBXNativeTarget "BirthdayTracker" */;
+			buildConfigurationList = AD464823289820E5004BD514 /* Build configuration list for PBXNativeTarget "Birthdays" */;
 			buildPhases = (
 				AD464808289820E3004BD514 /* Sources */,
 				AD464809289820E3004BD514 /* Frameworks */,
@@ -85,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = BirthdayTracker;
+			name = Birthdays;
 			productName = BirthdayTracker;
-			productReference = AD46480C289820E3004BD514 /* BirthdayTracker.app */;
+			productReference = AD46480C289820E3004BD514 /* Birthdays.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AD464807289820E3004BD514 /* Build configuration list for PBXProject "BirthdayTracker" */;
+			buildConfigurationList = AD464807289820E3004BD514 /* Build configuration list for PBXProject "Birthdays" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AD46480B289820E3004BD514 /* BirthdayTracker */,
+				AD46480B289820E3004BD514 /* Birthdays */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD46482728983055004BD514 /* Birthday.swift in Sources */,
 				AD464814289820E3004BD514 /* ViewController.swift in Sources */,
 				AD464810289820E3004BD514 /* AppDelegate.swift in Sources */,
 				AD464812289820E3004BD514 /* SceneDelegate.swift in Sources */,
@@ -294,9 +298,11 @@
 				DEVELOPMENT_TEAM = 994K78QDG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BirthdayTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Birthdays;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,9 +328,11 @@
 				DEVELOPMENT_TEAM = 994K78QDG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BirthdayTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Birthdays;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -343,7 +351,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AD464807289820E3004BD514 /* Build configuration list for PBXProject "BirthdayTracker" */ = {
+		AD464807289820E3004BD514 /* Build configuration list for PBXProject "Birthdays" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD464821289820E5004BD514 /* Debug */,
@@ -352,7 +360,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD464823289820E5004BD514 /* Build configuration list for PBXNativeTarget "BirthdayTracker" */ = {
+		AD464823289820E5004BD514 /* Build configuration list for PBXNativeTarget "Birthdays" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD464824289820E5004BD514 /* Debug */,
