@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD397870289908A400FAFFF5 /* AddBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD39786F289908A400FAFFF5 /* AddBirthdayViewController.swift */; };
+		AD397877289974E800FAFFF5 /* BirthdaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD397876289974E800FAFFF5 /* BirthdaysTableViewController.swift */; };
 		AD464810289820E3004BD514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46480F289820E3004BD514 /* AppDelegate.swift */; };
 		AD464812289820E3004BD514 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD464811289820E3004BD514 /* SceneDelegate.swift */; };
 		AD464814289820E3004BD514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD464813289820E3004BD514 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		AD39786F289908A400FAFFF5 /* AddBirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdayViewController.swift; sourceTree = "<group>"; };
+		AD397876289974E800FAFFF5 /* BirthdaysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdaysTableViewController.swift; sourceTree = "<group>"; };
 		AD46480C289820E3004BD514 /* Birthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD46480F289820E3004BD514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD464811289820E3004BD514 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 		AD39787128990C9F00FAFFF5 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AD397876289974E800FAFFF5 /* BirthdaysTableViewController.swift */,
 				AD39786F289908A400FAFFF5 /* AddBirthdayViewController.swift */,
 			);
 			path = ViewController;
@@ -160,6 +163,7 @@
 				AD464814289820E3004BD514 /* ViewController.swift in Sources */,
 				AD464810289820E3004BD514 /* AppDelegate.swift in Sources */,
 				AD464812289820E3004BD514 /* SceneDelegate.swift in Sources */,
+				AD397877289974E800FAFFF5 /* BirthdaysTableViewController.swift in Sources */,
 				AD46481A289820E3004BD514 /* BirthdayTracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
