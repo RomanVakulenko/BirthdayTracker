@@ -19,15 +19,22 @@ class AddBirthdayViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
-        print("нажата кнопка сохранения")
         
-        let firstName = firstNameTextField.text ?? ""
-        let lastName = lastNameTextField.text ?? ""
-        print("меня зовут \(firstName) \(lastName)")
-        
-        let birthDate = birthdayPicker.date
-        print("Мой ДР \(birthDate)")
-
+        let firstNameAB = firstNameTextField.text ?? ""
+        let lastNameAB = lastNameTextField.text ?? ""
+        let birthDateAB = birthdayPicker.date
+       
+        let newBirtday = Birthday(firstName: firstNameAB, lastName: lastNameAB, birthdate: birthDateAB)
+       
+        print("Создан ДР")
+        print("Имя: \(newBirtday.firstName)")
+        print("Фамилия: \(newBirtday.lastName)")
+        print("ДР: \(newBirtday.birthdate)")
     }
     
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        
+        dismiss(animated: true, completion: nil) //отключает изображающийся в настоящее время контроллер представлений, принимает 2 параметра: Первый — animated для анимации закрывающегося экрана. При передаче значения true экран AddBirthday соскальзывает и исчезает. Второй параметр — это опционал замыкания с названием completion - это блок кода, передаваемый функции, используется в том случае, если у вас есть код, который должен запуститься после отключения контроллера представлений. Поскольку пока делать ничего не нужно - присвоили nil.
+        
+    }
 }
