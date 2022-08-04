@@ -9,15 +9,35 @@ import UIKit
 
 class BirthdaysTableViewController: UITableViewController {
     
-    var birthdays = [Birthday]() //e,дет хранить далее ДР, кот в него запишем
+    var birthdays = [Birthday]() //будет хранить далее ДР, кот в него запишем
     let dateFormatter = DateFormatter()// для форматирования ДР в приемлемый вид
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateFormatter.dateStyle = .full // сделает так "Tuesday, December 17, 2008"
+        dateFormatter.dateStyle = .full // отформатирует так "Tuesday, December 17, 2008"
         dateFormatter.timeStyle = .none
+        
+//будем показывать 2ой VC сами, а не NavigationController'ом как было в книге
+        navigationItem.rightBarButtonItem = UIBarButtonItem ( // здесь мы переопределили, чтобы можно было показать - пояснить что переопределили и как читать слова ниже и физ смысл
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(nextVC)
+        )
     }
 
+    @objc
+    private func nextVC () {
+        let stb = UIStoryboard(name: "Main", bundle: .main) // создаем Storyboard и VC
+        let vc = stb.instantiateViewController(withIdentifier: "AddBirthdayViewController")
+//обращаемся к completion-замыканию и задаем туда функцию (указываем что захватить и перезагрузить tableView)
+        (vc as? AddBirthdayViewController)?.completion = { [weak self] birthday in
+            self?.birthdays.append(birthday)
+            self?.tableView.reloadData()
+        }
+        navigationController?.pushViewController(vc, animated: true) // переходим на 2ой, пушим его в стек (чтобы потом достать при сохранении вводимых данных)
+    }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
