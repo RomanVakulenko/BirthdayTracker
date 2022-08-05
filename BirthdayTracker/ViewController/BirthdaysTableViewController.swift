@@ -18,10 +18,10 @@ class BirthdaysTableViewController: UITableViewController {
         dateFormatter.timeStyle = .none
         
 //будем показывать 2ой VC сами, а не NavigationController'ом как было в книге
-        navigationItem.rightBarButtonItem = UIBarButtonItem ( // здесь мы переопределили, чтобы можно было показать - пояснить что переопределили и как читать слова ниже и физ смысл
+        navigationItem.rightBarButtonItem = UIBarButtonItem ( // здесь мы переопределили(создали новый БарБаттон,тк нельзя вынести его Аутлет), чтобы можно было показать - пояснить что переопределили и как читать слова ниже и физ смысл
             barButtonSystemItem: .add,
-            target: self,
-            action: #selector(nextVC)
+            target: self, //объект,принимающий действие; где искать -в этом классе
+            action: #selector(nextVC) //указатель на func для создаваемого объекта
         )
     }
 
@@ -29,7 +29,7 @@ class BirthdaysTableViewController: UITableViewController {
     private func nextVC () {
         let stb = UIStoryboard(name: "Main", bundle: .main) // создаем Storyboard и VC
         let vc = stb.instantiateViewController(withIdentifier: "AddBirthdayViewController")
-//обращаемся к completion-замыканию и задаем туда функцию (указываем что захватить и перезагрузить tableView)
+//задаем в замыкание функцию (указываем что захватить и перезагрузить tableView)
         (vc as? AddBirthdayViewController)?.completion = { [weak self] birthday in
             self?.birthdays.append(birthday)
             self?.tableView.reloadData()

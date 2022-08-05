@@ -12,7 +12,7 @@ class AddBirthdayViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var birthdayPicker: UIDatePicker!
     
-    var completion: ((Birthday) -> Void)? // 1создали свойство (тип замыкание), указываем, что свойство принимает в себя(?) или возвращает?
+    var completion: ((Birthday) -> Void)? // 1создали свойство (тип замыкание), указываем, что свойство принимает в себя аргумент Birthday. ?тк оно сразу не существует
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class AddBirthdayViewController: UIViewController {
        
         let newBirtday = Birthday(firstName: firstNameAB, lastName: lastNameAB, birthdate: birthDateAB) //в новый ДР записываем введенное
        
-        completion?(newBirtday) // 2используем свойство, а что происходит - физический смысл?
+        completion?(newBirtday) // 2передаем аргумент в фунцию-вКлоужер
         navigationController?.popViewController(animated: true) //по нажатию на save 2ой VC достается из стека и показывается
         
         print("Создан ДР, Имя: \(newBirtday.firstName), Фамилия: \(newBirtday.lastName)")
