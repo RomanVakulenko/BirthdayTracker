@@ -64,11 +64,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Birthday" id="GZQ-8S-zIq">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="eQh-sP-NgT">
-                            <connections>
-                                <action selector="cancelTapped:" destination="BYZ-38-t0r" id="cxu-mZ-Fp0"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="xEH-93-K1E">
                             <connections>
                                 <action selector="saveTapped:" destination="BYZ-38-t0r" id="fYo-VP-QGa"/>
@@ -83,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="84"/>
+            <point key="canvasLocation" x="704" y="84"/>
         </scene>
         <!--Birthdays-->
         <scene sceneID="wHi-IP-U2s">
