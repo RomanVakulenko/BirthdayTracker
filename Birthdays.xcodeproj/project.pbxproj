@@ -16,7 +16,6 @@
 		AD46481A289820E3004BD514 /* BirthdayTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD464818289820E3004BD514 /* BirthdayTracker.xcdatamodeld */; };
 		AD46481C289820E5004BD514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD46481B289820E5004BD514 /* Assets.xcassets */; };
 		AD46481F289820E5004BD514 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD46481D289820E5004BD514 /* LaunchScreen.storyboard */; };
-		AD46482728983055004BD514 /* Birthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD46482628983055004BD514 /* Birthday.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		AD46481B289820E5004BD514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD46481E289820E5004BD514 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD464820289820E5004BD514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD46482628983055004BD514 /* Birthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +75,6 @@
 				AD464811289820E3004BD514 /* SceneDelegate.swift */,
 				AD464813289820E3004BD514 /* ViewController.swift */,
 				AD464815289820E3004BD514 /* Main.storyboard */,
-				AD46482628983055004BD514 /* Birthday.swift */,
 				AD39787128990C9F00FAFFF5 /* ViewController */,
 				AD46481B289820E5004BD514 /* Assets.xcassets */,
 				AD46481D289820E5004BD514 /* LaunchScreen.storyboard */,
@@ -158,7 +155,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD46482728983055004BD514 /* Birthday.swift in Sources */,
 				AD397870289908A400FAFFF5 /* AddBirthdayViewController.swift in Sources */,
 				AD464814289820E3004BD514 /* ViewController.swift in Sources */,
 				AD464810289820E3004BD514 /* AppDelegate.swift in Sources */,

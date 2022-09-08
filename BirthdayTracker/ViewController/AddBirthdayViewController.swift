@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class AddBirthdayViewController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var birthdayPicker: UIDatePicker!
     
-    var completion: ((Birthday) -> Void)? // 1создали свойство (его тип функция - замыкание), указываем, что функция принимает в себя аргумент Birthday. ?тк замыкание еще не существует, не инициализировано, будет инициализировано когда мы в него передадим newBirtday -экземпляр класса Birthday
+//    var completion: ((Birthday) -> Void)? // 1создали свойство (его тип функция - замыкание), указываем, что функция принимает в себя аргумент Birthday. ?тк замыкание еще не существует, не инициализировано, будет инициализировано когда мы в него передадим newBirtday -экземпляр класса Birthday
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +22,28 @@ class AddBirthdayViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         
-        let firstNameAB = firstNameTextField.text ?? "" // записываем в константы текст и дату ДР
-        let lastNameAB = lastNameTextField.text ?? ""
-        let birthDateAB = birthdayPicker.date
-       
-        let newBirtday = Birthday(firstName: firstNameAB, lastName: lastNameAB, birthdate: birthDateAB) //в новый ДР записываем введенное
-       
-        completion?(newBirtday) // 2вызываем функцию, передавая в неё аргумент (частный вид делегата)
-        navigationController?.popViewController(animated: true) //по нажатию на save 2ой VC достается из стека и показывается
+        let firstName = firstNameTextField.text ?? "" // записываем в константы текст и дату ДР
+        let lastName = lastNameTextField.text ?? ""
+        let birthDate = birthdayPicker.date
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate//обращаемся к делегату c появлением экземляра APP
+        let context = appDelegate.persistentContainer.viewContext//достаем контекст из постоянного контейнера
         
-        print("Создан ДР, Имя: \(newBirtday.firstName), Фамилия: \(newBirtday.lastName)")
-        print("ДР: \(newBirtday.birthdate)")
+        let newBirthday = Birthday(context: context)
+            newBirthday.firstName = firstName
+            newBirthday.lastName = lastName
+            newBirthday.birthDate = birthDate as Date?
+            newBirthday.birthdayId = UUID().uuidString//будет возвращать новое уникальное Id при каждом вызове
+        if let uniqueId = newBirthday.birthdayId {
+            print("birthdayId: \(uniqueId)")
+        }
+// Сохраняем то, что находится в области видимости(?) context в Сore Data
+        do {
+            try context.save()
+        } catch let error {
+            print("cannot save the context due to error\(error)")
+        }
+//  completion?(newBirthday) // 2вызываем функцию, передавая в неё аргумент (частный вид делегата)
+        navigationController?.popViewController(animated: true) //по нажатию на save 2ой VC достается из стека и показывается
     }
 }
         
