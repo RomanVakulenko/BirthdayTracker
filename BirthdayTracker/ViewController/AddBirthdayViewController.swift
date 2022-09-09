@@ -13,7 +13,7 @@ class AddBirthdayViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var birthdayPicker: UIDatePicker!
     
-//    var completion: ((Birthday) -> Void)? // 1создали свойство (его тип функция - замыкание), указываем, что функция принимает в себя аргумент Birthday. ?тк замыкание еще не существует, не инициализировано, будет инициализировано когда мы в него передадим newBirtday -экземпляр класса Birthday
+    //    var completion: ((Birthday) -> Void)? // 1создали свойство (его тип функция - замыкание), указываем, что функция принимает в себя аргумент Birthday. ?тк замыкание еще не существует, не инициализировано, будет инициализировано когда мы в него передадим newBirtday -экземпляр класса Birthday
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,25 +29,26 @@ class AddBirthdayViewController: UIViewController {
         let context = appDelegate.persistentContainer.viewContext//достаем контекст из постоянного контейнера
         
         let newBirthday = Birthday(context: context)
-            newBirthday.firstName = firstName
-            newBirthday.lastName = lastName
-            newBirthday.birthDate = birthDate as Date?
-            newBirthday.birthdayId = UUID().uuidString//будет возвращать новое уникальное Id при каждом вызове
+        newBirthday.firstName = firstName
+        newBirthday.lastName = lastName
+        newBirthday.birthDate = birthDate as Date?
+        newBirthday.birthdayId = UUID().uuidString//будет возвращать новое уникальное Id при каждом вызове
         if let uniqueId = newBirthday.birthdayId {
             print("birthdayId: \(uniqueId)")
         }
-// Сохраняем то, что находится в области видимости(?) context в Сore Data
-        do {
-            try context.save()
-        } catch let error {
-            print("cannot save the context due to error\(error)")
-        }
-//  completion?(newBirthday) // 2вызываем функцию, передавая в неё аргумент (частный вид делегата)
+        appDelegate.saveContext()
+        // Сохраняем то, что находится в области видимости(?) context в Сore Data (так или строка выше)
+        //        do {
+        //            try context.save()
+        //        } catch let error {
+        //            print("cannot save the context due to error\(error)")
+        //        }
+        //  completion?(newBirthday) // 2вызываем функцию, передавая в неё аргумент (частный вид делегата)
         navigationController?.popViewController(animated: true) //по нажатию на save 2ой VC достается из стека и показывается
     }
 }
-        
-        
+
+
 // dismiss нужен для варианта с PresentModaly из книги:
 //        dismiss(animated: true, completion: nil) //отключает изображающийся в настоящее время контроллер представлений, принимает 2 параметра: Первый — animated для анимации закрывающегося экрана. При передаче значения true экран AddBirthday соскальзывает и исчезает. Второй параметр — это опционал замыкания с названием completion - это блок кода, передаваемый функции, используется в том случае, если у вас есть код, который должен запуститься после отключения контроллера представлений. Поскольку пока делать ничего не нужно - присвоили nil.
 //
