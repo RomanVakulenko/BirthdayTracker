@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class BirthdaysTableViewController: UITableViewController {
     
@@ -87,6 +88,13 @@ class BirthdaysTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if birthdays.count > indexPath.row {//убедимся, что массив birthdays имеет >= дней рождения, что и значение row в indexPath, которое мы пытаемся удалить. Используется оператор >, а не >=, поскольку birthdays.count должно быть больше indexPath.row - тут с 0 номерация
             let birthday = birthdays[indexPath.row]// присваиваем соответствующий объект из массива birthdays, чтобы его можно было удалить
+            
+            //так удаляем уведомление о ДР
+            if let identifier = birthday.birthdayId {
+                let center = UNUserNotificationCenter.current()
+                center.removePendingNotificationRequests(withIdentifiers: [identifier])
+            }
+            
             
             //поулчаем доступ к контексту управляемого объекта для делегата приложения
             let appDelegate = UIApplication.shared.delegate as! AppDelegate

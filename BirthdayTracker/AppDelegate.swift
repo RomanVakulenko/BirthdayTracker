@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // для запроса разрешения на отправку локальных уведомлений
+        let center = UNUserNotificationCenter.current()//текущее состояние
+        center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in// completionHandler вызывается после того, как пользователь разрешает или отказывает в отправке уведомлений.
+            if granted {
+                print("user allowed getting notifications")
+            } else {
+                print("user hasn't allowed notifications")
+            }
+        }
+        
         return true
     }
 

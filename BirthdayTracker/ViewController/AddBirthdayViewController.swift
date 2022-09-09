@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class AddBirthdayViewController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -36,14 +37,32 @@ class AddBirthdayViewController: UIViewController {
         if let uniqueId = newBirthday.birthdayId {
             print("birthdayId: \(uniqueId)")
         }
-        appDelegate.saveContext()
-        // Сохраняем то, что находится в области видимости(?) context в Сore Data (так или строка выше)
-        //        do {
-        //            try context.save()
-        //        } catch let error {
-        //            print("cannot save the context due to error\(error)")
-        //        }
-        //  completion?(newBirthday) // 2вызываем функцию, передавая в неё аргумент (частный вид делегата)
+//        appDelegate.saveContext()
+        // Сохраняем в Сore Data то, что находится в области видимости(?) context (или строка выше):
+                do {
+                    try context.save()
+                    
+                    let message = "Today \(firstName) \(lastName) celebrate birthday"
+                    let content = UNMutableNotificationContent()//зададим сообщение и звук уведомления
+                    content.body = message
+                    content.sound = UNNotificationSound.default
+                    //trigger помогает знать, когда и как часто отправлять уведомления
+                    var dateComponents = Calendar.current.dateComponents([.month, .day], from: birthDate)//не год, т.к. год ДР уже прошел и нужен месяц и день
+                    dateComponents.hour = 9 //в 9 утра
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                    
+                    if let identifier = newBirthday.birthdayId {
+                        let request = UNNotificationRequest(
+                            identifier: identifier,
+                            content: content,
+                            trigger: trigger)
+                        let center = UNUserNotificationCenter.current()//для формЗапроса создКонстанту=текЗначениюNotCentra
+                        center.add(request, withCompletionHandler: nil)//после формирования запроса его значение должно быть добавлено в UNUserNotificationCenter
+                    }
+                } catch let error {
+                    print("cannot save the context due to error\(error)")
+                }
+//          completion?(newBirthday) // 2вызываем функцию, передавая в неё аргумент (частный вид делегата)
         navigationController?.popViewController(animated: true) //по нажатию на save 2ой VC достается из стека и показывается
     }
 }
